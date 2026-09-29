@@ -1,0 +1,30 @@
+{
+  "id": "20260929-111500-t3st",
+  "title": "Left On Read",
+  "theme": "she saw the message at 2am and never answered",
+  "mood": "late night drive",
+  "createdAt": "2026-09-29T11:15:00-07:00",
+  "persona": {
+    "name": "Overnight",
+    "tagline": "songs for the drive home",
+    "voice": "deep baritone, half-sung melodic rap, light autotune, laid-back and conversational, wounded but confident",
+    "tags": "melodic rap, r&b, trap soul, moody, atmospheric pads, sparse 808s, soft hi-hats, late night, rainy city, male vocal, autotune, 82 bpm, minor key",
+    "themes": "late nights, old flames, loyalty and betrayal, success that feels lonely, the city at 3am, texts left on read",
+    "voiceNotes": "first person, conversational, specific details, flexes that turn into confessions, hooks that repeat one plain line",
+    "rules": "original lyrics only; never quote or paraphrase an existing song; no real people's names",
+    "coverStyle": "dark, grainy, a single cold light source, blue and amber"
+  },
+  "lyrics": "[verse]\nTwo a.m. and the read receipt is glowing\nDundas empty and the rain keeps going\nI typed it out and I meant every line\nYou saw it all and you took your time\n\n[chorus]\nLeft on read, left on read\nEvery word I said, left on read\nCity lights on the window instead\nLeft on read, left on read",
+  "tags": "melodic rap, r&b, trap soul, moody, atmospheric pads, sparse 808s, soft hi-hats, late night, rainy city, male vocal, autotune, 82 bpm, minor key, wistful, nocturnal, reverb",
+  "bpm": 82,
+  "key": "F minor",
+  "durationSec": 30,
+  "engine": "local",
+  "seed": 1234567,
+  "steps": 60,
+  "stages": {"lyrics": "done", "render": "pending", "separate": "pending", "convert": "skipped", "mix": "pending"},
+  "error": null,
+  "files": {"raw": null, "vocals": null, "instrumental": null, "converted": null, "final": null, "mp3": null, "cover": null},
+  "actualDurationSec": null,
+  "renderSeconds": null
+}

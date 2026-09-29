@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "overnight-engine"
+version = "0.1.0"
+description = "Overnight's audio pipeline: ACE-Step render, demucs split, RVC convert, ffmpeg mix."
+requires-python = ">=3.10"
+# The heavy dependencies (torch, ACE-Step, demucs, rvc-python) are installed by
+# setup.sh in a deliberate order and, for rvc-python, in a second venv, so they
+# are not listed here. This list is what the engine needs to import at all.
+dependencies = [
+    "Pillow>=10",
+    "numpy",
+    "soundfile",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["overnight_engine*"]
+
+[tool.setuptools.package-data]
+overnight_engine = ["fonts/*.ttf", "fonts/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
