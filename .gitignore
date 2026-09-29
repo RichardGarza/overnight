@@ -1,0 +1,17 @@
+# build output
+node_modules
+dist
+src-tauri/target
+src-tauri/gen
+build.log
+
+# yours, not the project's
+.env
+.env.*
+engine/.venv
+engine/__pycache__
+engine/**/__pycache__
+*.pyc
+
+# macOS
+.DS_Store
