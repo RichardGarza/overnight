@@ -111,7 +111,7 @@ export interface SetupStatus {
   claude: string | null;
   uv: string | null;
   ffmpeg: string | null;
-  engineSource: string;
+  engineSource: string | null;
   venv: boolean;
   check: EngineCheck | null;
   installing: boolean;

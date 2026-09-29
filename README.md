@@ -58,13 +58,13 @@ The **Artist** page is the persona: name, tagline, how the voice is described, t
 
 ## How a song gets made
 
-| Stage | Who | What | Rough time (M3 Pro, 18 GB) |
+| Stage | Who | What | Measured (M3 Pro, 18 GB) |
 |---|---|---|---|
 | 1. Lyrics | `claude -p` | Gets the persona, your theme and mood, the target length mapped to a song structure, and the format rules. Answers with JSON: title, tags, lyrics, bpm, key. Sonnet at medium effort by default. Claude is given no tools at all: no web, no shell, no files. | 20-60 s |
-| 2. Render | ACE-Step, on the Mac's GPU (or fal) | Sings the lyrics over a beat it plays, guided by the tag line. 60 steps for quality, 27 for a fast draft. Writes `raw.wav`. | minutes; roughly real time or slower at 60 steps, plus the one-time download |
-| 3. Separate | demucs (htdemucs) | Splits `raw.wav` into `vocals.wav` and `instrumental.wav`. Also downloads its weights the first time. | 30-90 s |
-| 4. Convert | rvc-python | Only if voice conversion is on: re-sings `vocals.wav` in your `.pth` voice, writes `vocals_converted.wav`. Skipped otherwise. | 20-60 s |
-| 5. Mix | ffmpeg | The converted vocal (or the original one) over the instrumental, loudness-normalised to -14 LUFS, true peak -1 dB. Writes `final.wav` and `final.mp3` (320k, tagged, cover embedded) and draws `cover.png` if it isn't there yet. If no stems exist it masters `raw.wav` as is. | seconds |
+| 2. Render | ACE-Step, on the Mac's GPU (or fal) | Sings the lyrics over a beat it plays, guided by the tag line. 60 steps for quality, 27 for a fast draft. Writes `raw.wav`. | 85 s for a 30 s song at 60 steps on the GPU: about a minute to load the model, then close to real time. A 2:30 song lands in 3 to 4 minutes. The first render also downloads the model (about 7 GB). |
+| 3. Separate | demucs (htdemucs) | Splits `raw.wav` into `vocals.wav` and `instrumental.wav`. Also downloads its weights the first time. | 4 s for a 30 s song |
+| 4. Convert | rvc-python | Only if voice conversion is on: re-sings `vocals.wav` in your `.pth` voice, writes `vocals_converted.wav`. Skipped otherwise. | not measured here (no voice model on this Mac); expect about a minute on the CPU |
+| 5. Mix | ffmpeg | The converted vocal (or the original one) over the instrumental, loudness-normalised to -14 LUFS, true peak -1 dB. Writes `final.wav` and `final.mp3` (320k, tagged, cover embedded) and draws `cover.png` if it isn't there yet. If no stems exist it masters `raw.wav` as is. | 1 to 2 s |
 
 The Studio shows the five stages as a list with a live message and elapsed time each, a percentage for the render, and Cancel. Cancel kills the engine and marks that stage `Cancelled`; **Re-mix** (from stage 5) and **Re-sing** (from stage 4) pick up from the files that already exist, so a cancelled or failed song is never lost. The finished song plays in place, with **Reveal in Finder** for the folder.
 

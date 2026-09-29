@@ -216,7 +216,7 @@ export default function Setup({ onSettings }: Props) {
               </div>
               <div>
                 <dt>Engine source</dt>
-                <dd>{status.engineSource}</dd>
+                <dd>{status.engineSource ?? "not found"}</dd>
               </div>
             </dl>
           ) : null}

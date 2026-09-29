@@ -18,3 +18,6 @@ engine/**/__pycache__
 
 # parallel build worktrees
 .claude/
+
+# the builder copies engine/ here at build time
+src-tauri/resources/engine/
